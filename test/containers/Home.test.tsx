@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-
 import Home, { HomeComponent } from '@containers/Home';
+import HomeRouteWrapper from "@containers/HomeRouteWrapper";
+import { MemoryRouter } from 'react-router';
 
 import Hero from '@components/Hero';
 import Solution from '@components/Solution';
@@ -37,5 +38,15 @@ describe('<Home />', () => {
     const spanComponent = component.find(MarketDescriptionText).find('span');
     expect(spanComponent).to.have.length(1);
     expect(spanComponent.render().text()).to.equal('MARKET Protocol');
+  });
+
+  it('renders all site components with route wrapper', () => {
+    const component = mount(<MemoryRouter><HomeRouteWrapper /></MemoryRouter>);
+    expect(component.getElement()).not.to.be.null;
+  });
+
+  it('renders with video expanded', () => {
+    const component = shallow(<HomeComponent enableVideo={true}></HomeComponent>);
+    expect(component.find(ExplainerCta).props().enableVideo).toEqual(true);
   });
 });

@@ -42,10 +42,17 @@ const TextWrapper = styled.div`
   }
 `;
 
-class ExplainerCta extends React.Component<{}, ExplainerCtaState> {
-  state: ExplainerCtaState = {
-    explainerPopUpVisible: false
-  };
+class ExplainerCta extends React.Component<
+  { enableVideo: boolean },
+  ExplainerCtaState
+> {
+  constructor(props: { enableVideo: boolean }) {
+    super(props);
+
+    this.state = {
+      explainerPopUpVisible: this.props.enableVideo
+    };
+  }
 
   handleCancel = () => {
     this.setState({
