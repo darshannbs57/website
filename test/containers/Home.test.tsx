@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme';
 import Home, { HomeComponent } from '@containers/Home';
 import HomeRouteWrapper from "@containers/HomeRouteWrapper";
 import { MemoryRouter } from 'react-router';
+import { Modal } from 'antd';
 
 import Hero from '@components/Hero';
 import Solution from '@components/Solution';
@@ -49,4 +50,9 @@ describe('<Home />', () => {
     const component = shallow(<HomeComponent enableVideo={true}></HomeComponent>);
     expect(component.find(ExplainerCta).props().enableVideo).toEqual(true);
   });
+
+  it('video section is expanded', () => {
+    const component = mount(<ExplainerCta enableVideo={true}></ExplainerCta>);
+    expect(component.find(Modal).props().visible).toEqual(true);
+  })
 });
