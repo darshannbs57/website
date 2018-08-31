@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import Home, { HomeComponent } from '@containers/Home';
-import HomeRouteWrapper from "@containers/HomeRouteWrapper";
+import HomeRouteWrapper from '@containers/Video';
 import { MemoryRouter } from 'react-router';
 import { Modal } from 'antd';
 
@@ -42,7 +42,7 @@ describe('<Home />', () => {
   });
 
   it('renders all site components with route wrapper', () => {
-    const component = mount(<MemoryRouter><HomeRouteWrapper /></MemoryRouter>);
+    const component = mount(<HomeRouteWrapper />);
     expect(component.getElement()).not.to.be.null;
   });
 

@@ -37,10 +37,7 @@ export default {
       },
       {
         path: '/video',
-        component: 'src/containers/HomeRouteWrapper',
-        getData: async () => ({
-          enableVideo: true,
-        })
+        component: 'src/containers/Video',
       },
       {
         path: '/team',
