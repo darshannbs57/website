@@ -9,7 +9,6 @@ import Dapp from '@components/Dapp';
 import BuildDapp from '@components/BuildDapp';
 import Cta from '@components/Cta';
 import ExplainerCta from '@components/ExplainerCta';
-import { ExplainerCtaProps } from '@components/ExplainerCta';
 
 export const HomeComponent = ({ enableVideo }) => (
   <div>
